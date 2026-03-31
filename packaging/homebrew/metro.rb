@@ -2,7 +2,7 @@ class Metro < Formula
   desc "Rails app generator with CLI, TUI, and template output"
   homepage "https://railsmetro.com"
   url "https://rubygems.org/gems/rails-metro-0.1.0.gem"
-  sha256 "FILL_IN_AFTER_GEM_PUBLISH"
+  sha256 "44604c7dc34aa9b28db7e4ae8db883593bcc8b7fa4998636d969992dca1a6f16"
   license "MIT"
 
   depends_on "ruby"
