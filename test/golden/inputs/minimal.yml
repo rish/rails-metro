@@ -1,0 +1,4 @@
+app_name: minimal_app
+database: sqlite3
+selected_packs: []
+rails_args: ""

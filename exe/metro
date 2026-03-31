@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+require "rails/metro"
+Rails::Metro::CLI.start(ARGV)

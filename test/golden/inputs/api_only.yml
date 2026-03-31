@@ -1,0 +1,8 @@
+app_name: api_app
+database: postgresql
+selected_packs:
+  - graphql
+  - api_cors
+  - doorkeeper
+  - api_serialization
+rails_args: "--api"

@@ -1,0 +1,8 @@
+app_name: saas_app
+database: postgresql
+selected_packs:
+  - authentication
+  - posthog
+  - background_jobs
+  - deployment
+rails_args: ""
