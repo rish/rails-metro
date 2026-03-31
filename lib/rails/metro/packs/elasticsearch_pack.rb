@@ -5,7 +5,6 @@ module Rails
         pack_name "elasticsearch"
         description "Searchkick for Elasticsearch-powered search"
         category "data"
-        conflicts_with "search", "meilisearch"
 
         def gems
           [

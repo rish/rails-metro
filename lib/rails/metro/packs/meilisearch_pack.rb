@@ -5,7 +5,6 @@ module Rails
         pack_name "meilisearch"
         description "Meilisearch for typo-tolerant, fast full-text search"
         category "data"
-        conflicts_with "search", "elasticsearch"
 
         def gems
           [

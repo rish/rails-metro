@@ -5,7 +5,6 @@ module Rails
         pack_name "search"
         description "pg_search for PostgreSQL full-text search"
         category "data"
-        conflicts_with "meilisearch", "elasticsearch"
 
         def gems
           [
