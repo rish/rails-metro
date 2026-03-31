@@ -5,7 +5,6 @@ module Rails
         pack_name "rollbar"
         description "Rollbar for real-time error tracking and debugging"
         category "ops"
-        conflicts_with "error_tracking", "honeybadger"
 
         def gems
           [

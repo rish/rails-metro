@@ -5,7 +5,6 @@ module Rails
         pack_name "honeybadger"
         description "Honeybadger for error tracking and uptime monitoring"
         category "ops"
-        conflicts_with "error_tracking", "rollbar"
 
         def gems
           [

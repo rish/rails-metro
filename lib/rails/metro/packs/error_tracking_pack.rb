@@ -2,10 +2,9 @@ module Rails
   module Metro
     module Packs
       class ErrorTrackingPack < FeaturePack
-        pack_name "error_tracking"
+        pack_name "sentry"
         description "Sentry for error tracking and performance monitoring"
         category "ops"
-        conflicts_with "honeybadger", "rollbar"
 
         def gems
           [
