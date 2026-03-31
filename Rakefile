@@ -33,11 +33,11 @@ task default: %i[test standard]
 # Release tasks
 # ---------------------------------------------------------------------------
 
-RELEASE_RELEASE_VERSION_FILE = "lib/rails/metro/version.rb"
-RELEASE_RELEASE_CHANGELOG_FILE = "CHANGELOG.md"
-RELEASE_RELEASE_PACKAGING_FORMULA = "packaging/homebrew/metro.rb"
-RELEASE_RELEASE_PACKAGING_PKGBUILD = "packaging/aur/PKGBUILD"
-RELEASE_RELEASE_PACKAGING_SRCINFO = "packaging/aur/.SRCINFO"
+RELEASE_VERSION_FILE = "lib/rails/metro/version.rb"
+RELEASE_CHANGELOG_FILE = "CHANGELOG.md"
+RELEASE_PACKAGING_FORMULA = "packaging/homebrew/metro.rb"
+RELEASE_PACKAGING_PKGBUILD = "packaging/aur/PKGBUILD"
+RELEASE_PACKAGING_SRCINFO = "packaging/aur/.SRCINFO"
 
 namespace :release do
   def current_version
@@ -155,23 +155,21 @@ namespace :release do
     sh "git push origin #{tag}"
 
     # GitHub release — extract changelog section for this version
-    notes = changelog.split(/^## \[/).map { |s| "## [#{s}" }.find { |s| s.include?("[#{version}]") }
+    changelog_utf8 = File.read(RELEASE_CHANGELOG_FILE, encoding: "utf-8")
+    notes = changelog_utf8.split(/^## \[/).map { |s| "## [#{s}" }.find { |s| s.include?("[#{version}]") }
     notes = notes&.sub(/\A## \[#{Regexp.escape(version)}\][^\n]*\n/, "")&.split(/^## \[/)&.first&.strip || ""
 
     sh %(gh release create #{tag} --title "#{tag}" --notes #{notes.shellescape})
 
     puts ""
-    puts "Released rails-metro #{version}!"
+    puts "Released rails-metro #{version}! Updating distribution channels..."
     puts ""
-    puts "Next steps:"
-    puts "  Homebrew tap:"
-    puts "    cp #{RELEASE_PACKAGING_FORMULA} ~/dev/homebrew-tap/Formula/metro.rb"
-    puts "    cd ~/dev/homebrew-tap && git add Formula/metro.rb && git commit -m 'metro #{version}' && git push"
+
+    sh "scripts/release_homebrew.sh"
+    sh "scripts/release_aur.sh"
+
     puts ""
-    puts "  AUR:"
-    puts "    cp #{RELEASE_PACKAGING_PKGBUILD} ~/dev/aur-rails-metro/PKGBUILD"
-    puts "    cp #{RELEASE_PACKAGING_SRCINFO} ~/dev/aur-rails-metro/.SRCINFO"
-    puts "    cd ~/dev/aur-rails-metro && git add PKGBUILD .SRCINFO && git commit -m 'Upgrade to #{version}' && git push origin master"
+    puts "All done! rails-metro #{version} is live on RubyGems, Homebrew, and AUR."
   end
 end
 
