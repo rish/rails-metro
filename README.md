@@ -6,11 +6,23 @@ rails-metro compiles your selections into a [Rails Application Template](https:/
 
 ## Installation
 
+**RubyGems**
 ```bash
 gem install rails-metro
 
 # For the interactive TUI (optional)
 gem install bubbletea
+```
+
+**Homebrew**
+```bash
+brew tap rish/tap
+brew install metro
+```
+
+**Arch Linux (AUR)**
+```bash
+yay -S ruby-rails-metro
 ```
 
 ## Quick Start
