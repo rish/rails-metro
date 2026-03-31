@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.2.0] - 2026-03-31
+
+### Added
+- **`spark` pack** — Hotwire Spark hot reloading for HTML, CSS, and Ruby changes without full page reload (conflicts with `hotwire_livereload`)
+- **`anycable` pack** — AnyCable high-performance WebSocket server replacing ActionCable (conflicts with `websockets`)
+
 ## [0.1.0] - 2026-03-31
 
 ### Added
