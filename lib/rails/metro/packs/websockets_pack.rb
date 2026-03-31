@@ -6,6 +6,8 @@ module Rails
         description "Solid Cable (Rails 8 default, database-backed ActionCable)"
         category "core"
 
+        conflicts_with "anycable"
+
         def gems
           [
             {name: "solid_cable"}

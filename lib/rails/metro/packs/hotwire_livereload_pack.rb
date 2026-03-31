@@ -6,6 +6,8 @@ module Rails
         description "Hotwire LiveReload for automatic page refresh on file changes"
         category "ops"
 
+        conflicts_with "spark"
+
         def gems
           [
             {name: "hotwire-livereload", group: :development}
