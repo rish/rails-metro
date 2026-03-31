@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.3.0] - 2026-03-31
+
+### Added
+- **`image_processing` pack** — ActiveStorage image variants via libvips (`image_processing` + `ruby-vips`)
+- **`gcs_storage` pack** — Google Cloud Storage backend for ActiveStorage
+- **`azure_storage` pack** — Azure Blob Storage backend for ActiveStorage
+- **`shrine` pack** — Shrine file attachment library, alternative to ActiveStorage (conflicts with `carrierwave`)
+- **`carrierwave` pack** — CarrierWave file upload library (conflicts with `shrine`)
+- **`sentry` pack** — renamed from `error_tracking` to match the actual gem installed
+
+### Changed
+- Removed unnecessary conflicts between error tracking packs (`sentry`, `honeybadger`, `rollbar`) — all can coexist
+- Removed unnecessary conflicts between search packs (`search`, `elasticsearch`, `meilisearch`) — all can coexist
+- Storage backend packs (`s3_storage`, `r2_storage`, `gcs_storage`, `azure_storage`) now correctly conflict with each other
+
 ## [0.2.0] - 2026-03-31
 
 ### Added
