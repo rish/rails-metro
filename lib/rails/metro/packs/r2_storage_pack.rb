@@ -5,7 +5,7 @@ module Rails
         pack_name "r2_storage"
         description "Cloudflare R2 for S3-compatible Active Storage (no egress fees)"
         category "core"
-        conflicts_with "s3_storage"
+        conflicts_with "s3_storage", "gcs_storage", "azure_storage"
 
         def gems
           [

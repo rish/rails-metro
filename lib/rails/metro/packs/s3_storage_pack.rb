@@ -5,7 +5,7 @@ module Rails
         pack_name "s3_storage"
         description "AWS S3 for Active Storage file uploads"
         category "core"
-        conflicts_with "r2_storage"
+        conflicts_with "r2_storage", "gcs_storage", "azure_storage"
 
         def gems
           [
